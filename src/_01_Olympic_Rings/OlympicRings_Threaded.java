@@ -25,13 +25,13 @@ public class OlympicRings_Threaded {
 		Riyu.setAngle(90);
 		Riyu.setSpeed(25);
 		Riyu.setPenWidth(15);
-		Robot Wyldfire = new Robot(700,500);
+		Robot Wyldfire = new Robot(700,400);
 		Wyldfire.setPenColor(Color.YELLOW);
 		Wyldfire.penDown();
 		Wyldfire.setAngle(90);
 		Wyldfire.setSpeed(25);
 		Wyldfire.setPenWidth(15);
-		Robot Ras = new Robot(1100,500);
+		Robot Ras = new Robot(1100,400);
 		Ras.setPenColor(Color.GREEN);
 		Ras.penDown();
 		Ras.setAngle(90);
