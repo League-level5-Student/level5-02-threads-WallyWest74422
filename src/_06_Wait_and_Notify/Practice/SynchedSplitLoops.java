@@ -19,15 +19,34 @@ public class SynchedSplitLoops {
 	static int counter = 0;
 	
 	public static void main(String[] args) {
+
 		Thread t1 = new Thread(() -> {
 			for(int i = 0; i < 100000; i++) {
-				counter++;
+				synchronized(SynchedSplitLoops.class) {
+					counter++;
+					try {
+					SynchedSplitLoops.class.notify();
+					SynchedSplitLoops.class.wait();
+					} catch (InterruptedException e) {
+						System.out.println("error!");
+					}
+				}
+
 			}
 		});
 		
+		
 		Thread t2 = new Thread(() -> {
 			for(int i = 0; i < 100000; i++) {
-				System.out.println(counter);
+				synchronized(SynchedSplitLoops.class) {
+					System.out.println(counter);
+					try {
+					SynchedSplitLoops.class.notify();
+					SynchedSplitLoops.class.wait();
+					} catch (InterruptedException e) {
+						System.out.println("error!");
+					}
+				}
 			}
 		});
 		
